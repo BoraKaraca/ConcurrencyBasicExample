@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ConcurrencyBasicExample.Application.Services;
+using ConcurrencyBasicExample.Application.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using ConcurrencyBasicExample.Domain.Entities;
-using ConcurrencyBasicExample.Infrastructure.Persistence;
-using ConcurrencyBasicExample.Application.ViewModel;
-using ConcurrencyBasicExample.Application.Services;
+using System.Threading.Tasks;
 
 namespace WebUI.Pages.AttributeToken
 {

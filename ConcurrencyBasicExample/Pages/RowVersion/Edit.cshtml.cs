@@ -1,11 +1,8 @@
 ﻿using ConcurrencyBasicExample.Application.Services;
 using ConcurrencyBasicExample.Application.ViewModel;
-using ConcurrencyBasicExample.Domain.Entities;
-using ConcurrencyBasicExample.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Threading.Tasks;
 
 namespace WebUI.Pages.RowVersion
@@ -13,10 +10,8 @@ namespace WebUI.Pages.RowVersion
     public class EditModel : PageModel
     {
         private readonly ConcurrencyRowVersionService _concurrencyRowVersionService;
-        private readonly ApplicationDbContext _applicationDbContext;
-        public EditModel(ConcurrencyRowVersionService concurrencyRowVersionService, ApplicationDbContext applicationDbContext)
+        public EditModel(ConcurrencyRowVersionService concurrencyRowVersionService)
         {
-            _applicationDbContext = applicationDbContext;
             _concurrencyRowVersionService = concurrencyRowVersionService;
         }
 
@@ -50,10 +45,6 @@ namespace WebUI.Pages.RowVersion
 
             try
             {
-
-
-                //_applicationDbContext.Entry(entity).Property("RowVersion").OriginalValue = SampleItem.RowVersion;
-
                 await _concurrencyRowVersionService.UpdateItemAsync(SampleItem);
             }
             catch (DbUpdateConcurrencyException ex)
