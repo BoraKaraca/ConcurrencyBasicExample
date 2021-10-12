@@ -1,0 +1,46 @@
+﻿@page
+@model WebUI.Pages.RowVersion.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<p>RowVersion</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SampleItem.Id" />
+            <div class="form-group">
+                <label asp-for="SampleItem.Name" class="control-label"></label>
+                <input asp-for="SampleItem.Name" class="form-control" />
+                <span asp-validation-for="SampleItem.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SampleItem.Lastname" class="control-label"></label>
+                <input asp-for="SampleItem.Lastname" class="form-control" />
+                <span asp-validation-for="SampleItem.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SampleItem.Age" class="control-label"></label>
+                <input asp-for="SampleItem.Age" class="form-control" />
+                <span asp-validation-for="SampleItem.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <input type="hidden" asp-for="SampleItem.RowVersion" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/RowVersion/List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

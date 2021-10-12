@@ -1,0 +1,44 @@
+﻿@page
+@model WebUI.Pages.RowVersion.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<p>RowVersion</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="requestViewModel.Name" class="control-label"></label>
+                <input asp-for="requestViewModel.Name" class="form-control" />
+                <span asp-validation-for="requestViewModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="requestViewModel.Lastname" class="control-label"></label>
+                <input asp-for="requestViewModel.Lastname" class="form-control" />
+                <span asp-validation-for="requestViewModel.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="requestViewModel.Age" class="control-label"></label>
+                <input asp-for="requestViewModel.Age" class="form-control" />
+                <span asp-validation-for="requestViewModel.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/RowVersion/List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
